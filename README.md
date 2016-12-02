@@ -5,7 +5,7 @@ Remember, to use the [Land Insight Planning API](http://www.landinsight.io/api) 
 If you just want some examples of how to make calls to the API in a specific programming language, check out the [Code Example Tool](http://docs.landinsight.apiary.io/#reference/planning-applications/list/get?console=1) in the apiary docs.  
 
 
-Below we describe and explain how to setup the various demos in the repository.
+Below we describe and explain how to setup the various demos in this repository.
 
 
 ## Putting pins on Google Maps in the browser
