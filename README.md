@@ -8,15 +8,13 @@ If you just want some examples of how to make calls to the API in a specific pro
 Below we describe and explain how to setup the various demos in the repository.
 
 
-## Pins on a Google Map in the browser
+## Putting pins on Google Maps in the browser
 
 Anyone with web-development experience should find it fairly easy to plot planning data with Google Maps.  You don't even need to run a localhost server!   
 
-The full code for this demo is in `googlemaps.html`; here we give a slightly simplified version.   
-
-```
 ![screenshot of demo](googlemaps_screenshot.png)
-```
+
+The full code for this demo is in `googlemaps.html`, below we give a slightly simplified version.   
 
 We start with the [Add a Marker demo](https://developers.google.com/maps/documentation/javascript/adding-a-google-map) provided by Google, and then add in a little extra code for querying the Land Insight API.  Before going further, you will need to follow the instructions in that demo to get yourself an API key for the Google Maps service (this is obviously unrelated to your Land Insight API key).   
 
