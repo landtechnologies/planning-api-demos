@@ -1,4 +1,4 @@
-# Land Insight Planning API demo(s)
+# Land Insight Planning API demos
 Remember, to use the [Land Insight Planning API](http://www.landinsight.io/api) you will need to request an API key.   
 
 
