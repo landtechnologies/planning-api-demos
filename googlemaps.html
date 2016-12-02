@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Demo: Land Insight Planning API with Google Maps</h3>
+    <div id="map"></div>
+    <h5> API returned:</h5>
+    <pre id="output">Loading...</pre>
+    <script>
+      function initMap() {
+        var lat = 51.5912874,
+            lng = -0.1080217;
+        var theMap = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: {lat: lat, lng: lng},
+        });
+        fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat +'/', {
+                headers: {'X-Api-Key': 'YOUR_LAND_INSIGHT_API_KEY_HERE'}})
+        .then(resp => resp.json())
+        .then(json => {
+            if(!json)
+              throw "no json";
+            if(!Array.isArray(json))
+              throw "json is not an array";
+            document.getElementById('output').textContent = JSON.stringify(json, null, 2);
+            let locations = json.map(x => x.location && ({
+                lat: x.location.coordinates[1],
+                lng: x.location.coordinates[0]
+            }));
+            locations.map(x => x && new google.maps.Marker({
+              position: x,
+              map: theMap
+            }));
+        })
+        .catch(err => {
+          document.getElementById('output').textContent = JSON.stringify(err, null, 2);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY_HERE&callback=initMap">
+    </script>
+  </body>
+</html>
