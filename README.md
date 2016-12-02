@@ -49,3 +49,38 @@ Note that the above is written using nice modern JavaScript features (ES6), so i
 That's it!
 
 
+## Plotting points with matplotlib in python
+
+For this demo, you need python, with `matplotlib` installed. 
+
+![screenshot of demo](matplotlib_screenshot.png)
+
+The full code for this demo is in `matplotlib_demo.py`.   
+
+We make the request as follows:
+
+```python
+request = Request(r'https://api.landinsight.io/v_beta/planning/'
+                  r'planning-applications?radius=100&limit=15&'
+                  r'location=-0.1080217%2C51.5912874/', headers={
+                      'Content-Type': r'application/json',
+                      'X-Api-Key': r'YOUR_API_KEY_HERE'
+                   })
+response_body = urlopen(request).read()
+```
+
+Then we parse the json, and extract some data to plot:
+
+```python
+data = json.loads(response_body)
+locations = np.empty((len(data), 2))
+for ii, record in enumerate(data):
+    locations[ii,:] = record['location']['coordinates']
+```
+
+And this is how we plot it:
+```python
+plt.plot(locations[:, 0], locations[:, 1], '.')
+```
+
+
