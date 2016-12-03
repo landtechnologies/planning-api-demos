@@ -83,4 +83,25 @@ And this is how we plot it:
 plt.plot(locations[:, 0], locations[:, 1], '.')
 ```
 
+## Viewing data in a table using Google Drive spreadsheets
 
+If you are comfortable working with spreadsheets, but not programming this may be of interest to you.  (Although only very basic functionality is currently provided in the script below, so you may need to ask someone to flesh it out a little if you are uncomfortable programming yourself).
+
+Create a new spreadsheet in Google Drive. In the menu, go to `Tools > Script editor...`.  Then paste in the following code, supplying you private API key in the location indicated,  and press save:
+
+```javascript
+function getPlanningApplications(lat, lng) {
+  var data = UrlFetchApp.fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat + '/',
+                               {headers: {'X-Api-Key': 'YOUR_API_KEY_HERE'}}).getContentText();
+  var locations = JSON.parse(data).map(function(x){
+    return [x.location.coordinates[1], x.location.coordinates[0]];
+  });
+  return JSON.stringify(locations);
+}
+```
+
+Next, go back to the spreadsheet itself, and type the following in one of the cells:  
+
+```
+=getPlanningApplications(51.5912874, -0.1080216)
+```
