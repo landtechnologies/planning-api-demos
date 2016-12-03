@@ -96,14 +96,14 @@ function getPlanningApplications(lat, lng) {
   var data = UrlFetchApp.fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat + '/',
                                {headers: {'X-Api-Key': 'YOUR_API_KEY_HERE'}}).getContentText();
   var locations = JSON.parse(data).map(function(x){
-    return [x.location.coordinates[1], x.location.coordinates[0]];
+    return [x.location.coordinates[1], x.location.coordinates[0], x.num_dwellings];
   });
-  return JSON.stringify(locations);
+  return [["lat", "lng", "num_dwellings"]].concat(locations);
 }
 ```
 
 Next, go back to the spreadsheet itself, and type the following in one of the cells:  
 
 ```
-=getPlanningApplications(51.5912874, -0.1080216)
+=ArrayFormula(getPlanningApplications(51.5912874, -0.1080216))
 ```
