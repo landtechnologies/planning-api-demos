@@ -87,6 +87,8 @@ plt.plot(locations[:, 0], locations[:, 1], '.')
 
 If you are comfortable working with spreadsheets, but not programming this may be of interest to you.  (Although only very basic functionality is currently provided in the script below, so you may need to ask someone to flesh it out a little if you are uncomfortable programming yourself).
 
+![screenshot of demo](spreadsheet_screenshot.png)
+
 Create a new spreadsheet in Google Drive. In the menu, go to `Tools > Script editor...`.  Then paste in the following code, supplying you private API key in the location indicated,  and press save:
 
 ```javascript
