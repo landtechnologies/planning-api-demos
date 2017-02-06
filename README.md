@@ -84,7 +84,7 @@ plt.plot(locations[:, 0], locations[:, 1], '.')
 ```
 
 ## Paging by date in Python
-Currently there are limits in the API how how many results you can request for a given query, even with paging. However, you can use the combination of `sort=-date_received` and `date_recieved_range_to=yyyy-mm-dd` to create an unlimitted batching system that will let you page through as many results as you need.  Be careful not to leave gaps in your date range when paging, and remember your batches may overlap slightly so you will need to de-duplciate the results (you can use `_id` for this.
+Currently there are limits in the API on how many results you can request for a given query, even with paging. However, you can use the combination of `sort=-date_received` and `date_received_range_to=yyyy-mm-dd` to create an unlimited batching system that will let you page through as many results as you need.  Be careful not to leave gaps in your date range when paging, and remember your batches may overlap slightly so you will need to de-duplicate the results (you can use `_id` for this).
 
 For a basic example of how to do this, see `paging_by_date.py`, although you stil need to write the code to check for duplicates.  Here is the main loop in that code:
 
@@ -98,6 +98,8 @@ for ii in range(3):
     earliest_date = results[-1]['date_received']
     earliest_date = (earliest_date[0:4], earliest_date[5:7],earliest_date[8:10])
 ```
+
+Note that if there happen to be more than 100 results on a single day you will keep getting the same value for `earliest_date` and thus the same batch of results each time from that point onwards.  If you can't work out how to get around this problem let us know.
 
 ## Viewing data in a table using Google Drive spreadsheets
 
