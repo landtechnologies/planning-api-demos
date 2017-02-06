@@ -31,7 +31,7 @@ for ii in range(3):
     earliest_date = results[-1]['date_received']
     earliest_date = (earliest_date[0:4], earliest_date[5:7],earliest_date[8:10])
     
-#%% show some of the data obtained
+# show some of the data obtained
 for x in results:
    print (x['date_received'], x['title'])
    
