@@ -5,7 +5,7 @@ import json
 # define a function that returns a batch of 100 results, sorted from newest to oldest
 def getRecords(api_key, gss_code='E09000014', date_to=(2017,2,19)):
     # construct url
-    url = (r'https://api.landinsight.io/v_beta/planning/planning-applications'
+    url = (r'https://api.landinsight.io/v1/planning-applications'
               r'/search?gss_code={gss_code:}&limit=100&'
               r'title=approved&date_received_range_to={date_to:}&'
               r'sort=-date_received').format(

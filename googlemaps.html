@@ -21,7 +21,7 @@
           zoom: 16,
           center: {lat: lat, lng: lng},
         });
-        fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat +'/', {
+        fetch('https://api.landinsight.io/v1/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat +'/', {
                 headers: {'X-Api-Key': 'YOUR_LAND_INSIGHT_API_KEY_HERE'}})
         .then(resp => resp.json())
         .then(json => {

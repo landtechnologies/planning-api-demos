@@ -28,7 +28,7 @@ function initMap() {
     zoom: 16,
     center: {lat: 51.5912874, lng: 0.1080217},
   });
-  fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=1080217%2C51.5912874/',
+  fetch('https://api.landinsight.io/v1/planning-applications?radius=100&limit=15&location=1080217%2C51.5912874/',
         {headers: {'X-Api-Key': 'YOUR_LAND_INSIGHT_API_KEY_HERE'}})
   .then(resp => resp.json())
   .then(json => {
@@ -60,9 +60,9 @@ The full code for this demo is in `matplotlib_demo.py`.
 We make the request as follows:
 
 ```python
-request = Request(r'https://api.landinsight.io/v_beta/planning/'
-                  r'planning-applications?radius=100&limit=15&'
-                  r'location=-0.1080217%2C51.5912874/', headers={
+request = Request(r'https://api.landinsight.io/v1/planning-applications'
+                  r'?radius=100&limit=15&location=-0.1080217%2C51.5912874/',
+                  headers={
                       'Content-Type': r'application/json',
                       'X-Api-Key': r'YOUR_API_KEY_HERE'
                    })
@@ -111,7 +111,7 @@ Create a new spreadsheet in Google Drive. In the menu, go to `Tools > Script edi
 
 ```javascript
 function getPlanningApplications(lat, lng) {
-  var data = UrlFetchApp.fetch('https://api.landinsight.io/v_beta/planning/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat + '/',
+  var data = UrlFetchApp.fetch('https://api.landinsight.io/v1/planning-applications?radius=100&limit=15&location=' + lng + '%2C' + lat + '/',
                                {headers: {'X-Api-Key': 'YOUR_API_KEY_HERE'}}).getContentText();
   var locations = JSON.parse(data).map(function(x){
     return [x.location.coordinates[1], x.location.coordinates[0], x.num_dwellings];

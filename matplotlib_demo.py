@@ -6,9 +6,9 @@ import matplotlib.pylab as plt
 import numpy as np
 
 # make request
-request = Request(r'https://api.landinsight.io/v_beta/planning/'
-                  r'planning-applications?radius=100&limit=15&'
-                  r'location=-0.1080217%2C51.5912874/', headers={
+request = Request(r'https://api.landinsight.io/v1/planning-applications'
+                  r'?radius=100&limit=15&location=-0.1080217%2C51.5912874/',
+                  headers={
                       'Content-Type': r'application/json',
                       'X-Api-Key': r'YOUR_API_KEY_HERE'
                    })
