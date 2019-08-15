@@ -1,5 +1,5 @@
-# Land Insight Planning API demos
-Remember, to use the [Land Insight Planning API](http://www.landinsight.io/api) you will need to request an API key.   
+# LandInsight Planning API demos
+Remember, to use the [LandInsight Planning API](http://www.landinsight.io/api) you will need to request an API key.   
 
 
 If you just want some examples of how to make calls to the API in a specific programming language, check out the [Code Example Tool](http://docs.landinsight.apiary.io/#reference/planning-applications/list/get?console=1) in the apiary docs.  
@@ -16,7 +16,7 @@ Anyone with web-development experience should find it fairly easy to plot planni
 
 The full code for this demo is in `googlemaps.html`, below we give a slightly simplified version.   
 
-We start with the [Add a Marker demo](https://developers.google.com/maps/documentation/javascript/adding-a-google-map) provided by Google, and then add in a little extra code for querying the Land Insight API.  Before going further, you will need to follow the instructions in that demo to get yourself an API key for the Google Maps service (this is obviously unrelated to your Land Insight API key).   
+We start with the [Add a Marker demo](https://developers.google.com/maps/documentation/javascript/adding-a-google-map) provided by Google, and then add in a little extra code for querying the LandInsight API.  Before going further, you will need to follow the instructions in that demo to get yourself an API key for the Google Maps service (this is obviously unrelated to your LandInsight API key).   
 
 Right, now you have a Google API Key, ceate a blank `.html` file and copy in the code from the Google demo, setting your Google API key (as inidicated by the Google sample).  Then open the file in your browser and check it works - including panning/zooming of the map.
 
